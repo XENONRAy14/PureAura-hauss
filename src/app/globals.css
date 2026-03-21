@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-dark: #0a0a0a;
+  --color-dark-light: #111111;
+  --color-dark-card: #161616;
+  --color-dark-border: #1e1e1e;
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4b96a;
+  --color-gold-dark: #a88a3a;
+  --color-gold-muted: rgba(201, 168, 76, 0.15);
+  --color-cream: #f5f0e8;
+  --color-text-primary: #f0ece4;
+  --color-text-secondary: #9a9590;
+  --color-text-muted: #6b6560;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-dark);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-dark);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold-dark);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
+  }
+
+  input, select, textarea {
+    font-family: inherit;
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(201, 168, 76, 0.15); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Utility classes — inside @layer so they don't override Tailwind utilities */
+@layer components {
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #e0c878 0%, #c9a84c 40%, #a88a3a 70%, #d4b96a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.06), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  .glass-card {
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(201, 168, 76, 0.08);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(201, 168, 76, 0.22);
+    box-shadow: 0 8px 40px rgba(201, 168, 76, 0.06);
+  }
+}
