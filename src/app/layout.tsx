@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://pureaurahaus.fr",
+    canonical: "https://pure-aura-hauss.vercel.app",
   },
 };
 

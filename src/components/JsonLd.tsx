@@ -5,7 +5,7 @@ export default function JsonLd() {
     name: "PureAura Haus",
     description:
       "Construction neuve, rénovation de A à Z, nettoyage professionnel et dépannage BTP à Marseille. Gros œuvre, second œuvre, finitions. Intervention rapide et qualité premium.",
-    url: "https://pureaurahaus.fr",
+    url: "https://pure-aura-hauss.vercel.app",
     telephone: "+33768208987",
     email: "contact.pureaurahaus@yahoo.com",
     address: {
